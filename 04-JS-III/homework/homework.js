@@ -54,11 +54,8 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  let wordsConnect = ''
-  palabras.forEach(word => {
-    wordsConnect = wordsConnect.concat(word + ' ')
-  })
-  return wordsConnect.trimEnd()
+  const wordsConnect = palabras.reduce((prevWords, currentWord) => (`${prevWords} ${currentWord}`))
+  return wordsConnect
 }
 
 
@@ -84,9 +81,8 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  let add = 0
   const length = resultadosTest.length
-  resultadosTest.forEach(number => add+=number)
+  const add = resultadosTest.reduce((prev,  current) => prev + current)
   const average = add / length
   return average
 }
@@ -106,9 +102,7 @@ function multiplicarArgumentos(...args) {
   // Escribe tu código aquí:
   // if (!arguments) return 0
   if (args.length === 0) return 0
-  let resMult = 1
-  args.forEach(number => resMult = number * resMult)
-	console.log({resMult})
+  const resMult = args.reduce((prev, current) => prev * current)
   return resMult
 }
 
